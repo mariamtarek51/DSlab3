@@ -24,31 +24,45 @@ public class maxHeap {
 		
 		heapify(array,size,max);
 		}
-		
-		
-		
+
 	}
-	
-	
-	
-	
-	
-	
+	void heapsort(ArrayList<Integer> array){
+        int n=array.size();
+		for (int i = n / 2 - 1; i >= 0; i--)
+			heapify(array, n, i);
+
+		for (int i=n-1; i>=0;i--){
+			int temp=array.get(0);
+			array.set(0,array.get(i));
+			array.set(i,temp);
+			heapify(array,i,0);
+		}
+	}
+	static void printArray(ArrayList<Integer> arr)
+	{
+		int n = arr.size();
+		for (int i = 0; i < n; ++i)
+			System.out.print(arr.get(i) + " ");
+		System.out.println();
+	}
+
 	public static void main(String[] args) {
 	
 	
 		int num;
 		
-		Scanner sc=new Scanner(System.in);  
-		
-		num=sc.nextInt(); 
-		 
+		Scanner sc=new Scanner(System.in);
 		ArrayList<Integer> array = new ArrayList<Integer>();
 		array.add(5);
 		array.add(6);
 		array.add(9);
 		array.add(1);
-		int n=array.size();
+		printArray(array);
+		maxHeap op=new maxHeap();
+		op.heapsort(array);
+        printArray(array);
+	/*
+		int n=array.size();*/
 	
 		
 		
