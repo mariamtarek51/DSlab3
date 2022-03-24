@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.*;
 public class maxHeap { 
 	void buildheap(ArrayList<Integer> array,int size) { 
-		
+
 		for (int i = size/ 2 - 1; i >= 0; i--)
 			heapify(array, size,i);
 	}
@@ -28,8 +28,7 @@ public class maxHeap {
 	}
 	void heapsort(ArrayList<Integer> array){
         int n=array.size();
-		for (int i = n / 2 - 1; i >= 0; i--)
-			heapify(array, n, i);
+		buildheap(array,n);
 
 		for (int i=n-1; i>=0;i--){
 			int temp=array.get(0);
