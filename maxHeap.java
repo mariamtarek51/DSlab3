@@ -51,11 +51,10 @@ public class maxHeap {
         heapify(array,n,0);
         return maximum;
 	}
-	ArrayList<Integer> MAX_HEAP=new ArrayList<>();
+
 	 int size=0;
-	void Heap_Max_Insert(int i){
-		//int size=-1;
-		//for(int i=0 ;i< array.size()-1;i++){
+	void Heap_Max_Insert(ArrayList<Integer> MAX_HEAP, int i){
+
 		     MAX_HEAP.add(i);
 			 //shifting up to
 			//maintain the greatest element in the root
@@ -83,18 +82,30 @@ public class maxHeap {
 		maxHeap op=new maxHeap();
 		Scanner sc=new Scanner(System.in);
 		ArrayList<Integer> array = new ArrayList<Integer>();
-		op.Heap_Max_Insert(5);
-		op.Heap_Max_Insert(6);
-		op.Heap_Max_Insert(9);
-		op.Heap_Max_Insert(1);
-		printArray(op.MAX_HEAP);
-
-		op.heapsort(array);
-        printArray(array);
-		array=op.MAX_HEAP;
+		op.Heap_Max_Insert(array,45);
+		op.Heap_Max_Insert(array,20);
+		op.Heap_Max_Insert(array,14);
+		op.Heap_Max_Insert(array,12);
+		op.Heap_Max_Insert(array,31);
+		op.Heap_Max_Insert(array,7);
+		op.Heap_Max_Insert(array,11);
+		op.Heap_Max_Insert(array,13);
+		op.Heap_Max_Insert(array,7);
 		System.out.println("the priority queue: ");
 		printArray(array);
-		System.out.println("the max heap: "+ op.Extract_Max(array));
+		//if you want extract max
+		int maximum= op.Extract_Max(array);
+		//if you want to sort
+		op.heapsort(array);
+		System.out.println("the max heap: "+ maximum);
+
+		System.out.println("Sorted array: ");
+
+        printArray(array);
+
+
+
+
 	/*
 		int n=array.size();*/
 	
