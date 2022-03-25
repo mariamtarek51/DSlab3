@@ -90,7 +90,6 @@ public class maxHeap {
 //reading array elements from the user
 			op.Heap_Max_Insert(array,sc.nextInt());
 		}
-		op.Heap_Max_Insert(array,45);
 
 		System.out.println("the priority queue: ");
 		printArray(array);
@@ -99,16 +98,14 @@ public class maxHeap {
 			int y = sc.nextInt();
 			if (y == 1) {
 				//if you want extract max
-				arr = array;
-				printArray(arr);
+				for (int j=0;j<n;j++){arr.add(j,array.get(j));}
 				System.out.println("the max heap: " + op.Extract_Max(arr));
 			} else if (y == 2) {
 				//if you want to sort
-				arr = array;
-				printArray(array);
+				for (int j=0;j<n;j++){arr.add(j,array.get(j));}
 				System.out.println("Sorted array: ");
-				op.heapsort(array);
-				printArray(array);
+				op.heapsort(arr);
+				printArray(arr);
 			}
 		}while(true);
 
