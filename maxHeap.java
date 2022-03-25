@@ -76,33 +76,41 @@ public class maxHeap {
 	}
 
 	public static void main(String[] args) {
-	
-	
+
 		int num;
 		maxHeap op=new maxHeap();
 		Scanner sc=new Scanner(System.in);
 		ArrayList<Integer> array = new ArrayList<Integer>();
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		System.out.println("Enter number of elements: ");
+		int n=sc.nextInt();
+		System.out.println("Enter the elements of the array: ");
+		for(int i=0; i<n; i++)
+		{
+//reading array elements from the user
+			op.Heap_Max_Insert(array,sc.nextInt());
+		}
 		op.Heap_Max_Insert(array,45);
-		op.Heap_Max_Insert(array,20);
-		op.Heap_Max_Insert(array,14);
-		op.Heap_Max_Insert(array,12);
-		op.Heap_Max_Insert(array,31);
-		op.Heap_Max_Insert(array,7);
-		op.Heap_Max_Insert(array,11);
-		op.Heap_Max_Insert(array,13);
-		op.Heap_Max_Insert(array,7);
+
 		System.out.println("the priority queue: ");
 		printArray(array);
-		//if you want extract max
-		int maximum= op.Extract_Max(array);
-		//if you want to sort
-		op.heapsort(array);
-		System.out.println("the max heap: "+ maximum);
-
-		System.out.println("Sorted array: ");
-
-        printArray(array);
-
+		do {
+			System.out.println("Enter 1 to extract max or 2 to sort the elements:");
+			int y = sc.nextInt();
+			if (y == 1) {
+				//if you want extract max
+				arr = array;
+				printArray(arr);
+				System.out.println("the max heap: " + op.Extract_Max(arr));
+			} else if (y == 2) {
+				//if you want to sort
+				arr = array;
+				printArray(array);
+				System.out.println("Sorted array: ");
+				op.heapsort(array);
+				printArray(array);
+			}
+		}while(true);
 
 
 
