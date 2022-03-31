@@ -1,36 +1,35 @@
 package dslab3;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.*;
-public class maxHeap { 
-	void buildheap(ArrayList<Integer> array,int size) { 
+public class maxHeap {
+	void buildheap(ArrayList<Integer> array,int size) {
 
 		for (int i = size/ 2 - 1; i >= 0; i--)
 			heapify(array, size,i);
 	}
-	
+
 	void heapify(ArrayList<Integer> array,int size,int i) {
 		int l=2*i+1; //left child
 		int r=2*i+2; //right child
 		int max=i;
 		//checking heap property
 		if(l<size && array.get(l)>array.get(max)) {
-		max=l;}
+			max=l;}
 		if(r<size && array.get(r)>array.get(max)) {
-		max=r;
-             }
+			max=r;
+		}
 		//if not the same ,they are swapped and continue checking
 		//until the max is in the root
 		if(max != i){
-	   Collections.swap(array, i, max);
-		
-		heapify(array,size,max);
+			Collections.swap(array, i, max);
+
+			heapify(array,size,max);
 		}
 
 	}
 	void heapsort(ArrayList<Integer> array){
-        int n=array.size();
+		int n=array.size();
 		buildheap(array,n);
 
 		for (int i=n-1; i>=0;i--){
@@ -40,7 +39,24 @@ public class maxHeap {
 			heapify(array,i,0);
 		}
 	}
-///-------------------TO IMPLEMENT PRIORITY QUEUE---------------
+	void bubblesort(ArrayList<Integer> array){
+		int n = array.size();
+		for (int i = 0; i < n-1; i++)
+			for (int j = 0; j < n-i-1; j++)
+				if (array.get(j) > array.get(j+1))
+				{
+					// swap arr[j+1] and arr[j]
+					int temp = array.get(j);
+					array.set(j,array.get(j+1));
+					array.set(j+1,temp) ;
+				}
+
+
+
+
+
+	}
+	///-------------------TO IMPLEMENT PRIORITY QUEUE---------------
 	int Extract_Max(ArrayList<Integer> array){
 		//in the binary heap ,the max is the root
 		int maximum=array.get(0);
@@ -48,23 +64,23 @@ public class maxHeap {
 		//putting the last leaf in the place of root
 		array.set(0, array.get(n-1));
 		n=n-1;
-        heapify(array,n,0);
-        return maximum;
+		heapify(array,n,0);
+		return maximum;
 	}
 
-	 int size=0;
+	int size=0;
 	void Heap_Max_Insert(ArrayList<Integer> MAX_HEAP, int i){
 
-		     MAX_HEAP.add(i);
-			 //shifting up to
-			//maintain the greatest element in the root
-		    int current =size;
-			int parent=(current-1)/2;
+		MAX_HEAP.add(i);
+		//shifting up to
+		//maintain the greatest element in the root
+		int current =size;
+		int parent=(current-1)/2;
 
-			while(size>0 && MAX_HEAP.get(parent)<MAX_HEAP.get(current)){
-				Collections.swap(MAX_HEAP,parent,current);
-				current=parent;
-			}
+		while(size>0 && MAX_HEAP.get(parent)<MAX_HEAP.get(current)){
+			Collections.swap(MAX_HEAP,parent,current);
+			current=parent;
+		}
 		size=size+1;
 	}
 	static void printArray(ArrayList<Integer> arr)
@@ -94,7 +110,9 @@ public class maxHeap {
 		System.out.println("the priority queue: ");
 		printArray(array);
 		do {
-			System.out.println("Enter 1 to extract max or 2 to sort the elements:");
+			System.out.println("Enter 1 to extract max\n" +
+					"2 to sort the elements by heapsort \n" +
+					"3 to sort elements by bubblesort :\n");
 			int y = sc.nextInt();
 			if (y == 1) {
 				//if you want extract max
@@ -107,25 +125,15 @@ public class maxHeap {
 				op.heapsort(arr);
 				printArray(arr);
 			}
+			else if(y==3){
+				for (int j=0;j<n;j++){arr.add(j,array.get(j));}
+				System.out.println("Sorted array using buble sort : ");
+				op.bubblesort(arr);
+				printArray(arr);
+
+
+			}
 		}while(true);
 
-
-
-	/*
-		int n=array.size();*/
-	
-		
-		
-
-		
-	
-	
-	
-	
-	
-	
-	
-	
-
-}
+	}
 }
