@@ -18,8 +18,8 @@ public class performance {
         Random rd = new Random();
         ArrayList<Integer> array = new ArrayList<Integer>();
         //ArrayList<Integer> arr = new ArrayList<Integer>();
-       // for(int i=0; i<6;i++){
-            int array_size=200;//rd.nextInt(100)+1;
+        for(int i=0; i<6;i++){
+            int array_size=rd.nextInt(100)+1;
             System.out.println("Array size: \n"+array_size);
             array=sample.generate_random_array(array_size);
         //heap sort
@@ -28,7 +28,6 @@ public class performance {
             op.heapsort(array);
             op.printArray(array);
             long end = System.currentTimeMillis();
-            System.out.println("lllll"+end);
             System.out.println("Time taken by heap:" + (end-start)/Math.pow(10,6) +" nano sec\n");
         //bubble sort
             System.out.println("Sorted array using bubble sort : ");
@@ -52,7 +51,7 @@ public class performance {
             long end_Time= System.currentTimeMillis();
             op.printArray(array);
             System.out.println("Time taken by Quick:" + (end_Time-start_Time)/1000 +" micro");
-            //}
+            }
 
 
     }
