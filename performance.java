@@ -19,7 +19,7 @@ public class performance {
         ArrayList<Integer> array = new ArrayList<Integer>();
         //ArrayList<Integer> arr = new ArrayList<Integer>();
         for(int i=0; i<6;i++){
-            int array_size=rd.nextInt(100)+1;
+            int array_size=rd.nextInt(1000)+1;
             System.out.println("Array size: \n"+array_size);
             array=sample.generate_random_array(array_size);
         //heap sort
@@ -35,7 +35,7 @@ public class performance {
             op.bubblesort(array);
             long endTime= System.currentTimeMillis();
             op.printArray(array);
-            System.out.println("Time taken by bubble:" + (endTime-startTime)/1000 +" micro Sec\n");
+            System.out.println("Time taken by bubble:" + (endTime-startTime)/Math.pow(10,6)+" nano Sec\n");
         //merge sort
           /*  System.out.println("Sorted array using Merge sort : ");
             Merge_sort j=new Merge_sort();
@@ -50,7 +50,7 @@ public class performance {
             u.quickSort(array,0, array.size()-1);
             long end_Time= System.currentTimeMillis();
             op.printArray(array);
-            System.out.println("Time taken by Quick:" + (end_Time-start_Time)/1000 +" micro");
+            System.out.println("Time taken by Quick:" + (end_Time-start_Time)/Math.pow(10,6) +" nano");
             }
 
 
