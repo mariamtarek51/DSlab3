@@ -90,8 +90,7 @@ public class maxHeap {
 			System.out.print(arr.get(i) + " ");
 		System.out.println();
 	}
-
-	public static void main(String[] args) {
+public static void main(String[] args) {
 
 		int num;
 		maxHeap op=new maxHeap();
@@ -108,11 +107,12 @@ public class maxHeap {
 		}
 
 		System.out.println("the priority queue: ");
-		printArray(array);
+		op.printArray(array);
 		do {
 			System.out.println("Enter 1 to extract max\n" +
 					"2 to sort the elements by heapsort \n" +
-					"3 to sort elements by bubblesort :\n");
+					"3 to sort elements by bubblesort :\n" +
+					"4 to sort elements by Mergesort :\n");
 			int y = sc.nextInt();
 			if (y == 1) {
 				//if you want extract max
@@ -123,16 +123,22 @@ public class maxHeap {
 				for (int j=0;j<n;j++){arr.add(j,array.get(j));}
 				System.out.println("Sorted array: ");
 				op.heapsort(arr);
-				printArray(arr);
+				op.printArray(arr);
 			}
 			else if(y==3){
 				for (int j=0;j<n;j++){arr.add(j,array.get(j));}
-				System.out.println("Sorted array using buble sort : ");
+				System.out.println("Sorted array using bubble sort : ");
 				op.bubblesort(arr);
-				printArray(arr);
+				op.printArray(arr);
 
 
 			}
+			else if(y==4){
+				for (int j=0;j<n;j++){arr.add(j,array.get(j));}
+				System.out.println("Sorted array using merge sort : ");
+				Merge_sort j=new Merge_sort();
+				j.sort(arr,arr.get(0),arr.get(arr.size()-1));
+				op.printArray(j.sort(arr,0,arr.size()-1));}
 		}while(true);
 
 	}
